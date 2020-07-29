@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  # get 'foo/bar'
-  # get 'foo/baz'
-   get 'static_pages/home'
-  # get 'static_pages/about'
-  # get 'static_pages/help'
-  # resources :microposts
-  # resources :users
+  get 'foo/bar'
+  get 'foo/baz'
+  get '/about',to:'static_pages#about'
+  get '/help',to:'static_pages#help' #,as:'helf'
+  get '/contact',to:'static_pages#contact'
+  get '/signup',to:'users#new'
+  resources :microposts
+   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  #  root 'application'
+   root 'static_pages#home'
 end
